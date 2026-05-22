@@ -1,136 +1,155 @@
-🚀 AI-Powered Full Stack Study Tracker (Advanced)
+# 🚀 AI-Powered Full Stack Study Tracker
 
-An advanced AI-driven study tracker and learning platform built using React, designed to help developers master the modern full-stack ecosystem with interactive learning, doubt solving, and mock interviews.
+An advanced AI-driven study tracker and learning platform built with React — helping developers master the modern full-stack ecosystem through interactive learning, doubt solving, and mock interview preparation.
 
-🌐 Live Demo: https://interview-tracker-seven.vercel.app
-🧠 Overview
+🌐 **Live Demo:** [interview-tracker-seven.vercel.app](https://interview-tracker-seven.vercel.app)
 
-This application goes beyond a traditional study tracker by integrating:
+---
 
-📚 Structured learning roadmap
-🤖 AI-powered explanations
-❓ Doubt-solving system
-🧪 Mock tests & interview preparation
+## 🧠 Overview
 
-It helps users learn → practice → evaluate → improve in one place.
+This goes beyond a traditional study tracker by combining four learning stages in one place:
 
+| Stage | What it does |
+|-------|-------------|
+| 📚 Learn | Structured roadmap with AI-generated explanations |
+| ❓ Ask | Doubt-solving system with context-based AI answers |
+| 🧪 Test | Dynamically generated MCQ mock tests |
+| 📊 Evaluate | Instant feedback to measure your understanding |
 
-🚀 Features
+---
 
-📚 Learning & Tracking
-Topic-wise structured roadmap
-Covers complete modern stack
-Track progress across topics
-Clean and interactive UI
+## 🚀 Features
 
-🤖 AI Integration
-Generate explanations for any topic
-Ask doubts per topic
-Instant AI responses
-API key-based setup
+### 📚 Learning & Tracking
+- Topic-wise structured roadmap
+- Covers the complete modern stack
+- Track progress across topics
+- Clean and interactive UI
 
-❓ Doubt Solving System
-Dedicated Ask Doubt section
-Context-based AI answers
-Helps in deeper understanding
+### 🤖 AI Integration
+- Generate explanations for any topic
+- Ask doubts per topic
+- Instant AI responses
+- API key-based setup
 
-🧪 Mock Tests & Interview Prep
-Generate mock tests dynamically
-Select:
-Topics
-Difficulty level
-Get 5–10 MCQ questions
-Evaluate your learning instantly
+### ❓ Doubt Solving System
+- Dedicated **Ask Doubt** section
+- Context-aware AI answers
+- Helps build deeper understanding
 
-🧠 Topics Covered
-JavaScript
-React
-TypeScript
-Next.js
-Data Structures and Algorithms
-Modern Full Stack Development
+### 🧪 Mock Tests & Interview Prep
+- Dynamically generated mock tests
+- Choose your **topic** and **difficulty level**
+- Get 5–10 MCQ questions per session
+- Evaluate your learning instantly
 
-🛠️ Tech Stack
+---
 
-Frontend
-React (Vite)
+## 🧠 Topics Covered
 
-AI Integration
-LLM API (API key-based)
+- JavaScript
+- React
+- TypeScript
+- Next.js
+- Data Structures & Algorithms
+- Modern Full Stack Development
 
-Deployment
-Vercel
+---
 
-⚙️ Setup Instructions
+## 🛠️ Tech Stack
 
-1. Clone Repository
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React (Vite) |
+| AI | LLM API (key-based) |
+| Deployment | Vercel |
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the repository
+```bash
 git clone https://github.com/arjunpj-11/MERN-Advanced-Tracker
-cd your-repo-name
-2. Install Dependencies
+cd MERN-Advanced-Tracker
+```
+
+### 2. Install dependencies
+```bash
 npm install
-3. Run Locally
+```
+
+### 3. Run locally
+```bash
 npm run dev
-4. Setup AI API
-Click on “Setup” in the app
-Enter your API key
-Save configuration
-Start using AI features
+```
 
-🌐 Deployment
+### 4. Configure AI
+1. Click **Setup** in the app
+2. Enter your API key
+3. Save configuration
+4. Start using AI features
 
-This project is deployed on Vercel for fast and scalable hosting.
+---
 
-https://interview-tracker-seven.vercel.app
+## 🌐 Deployment
 
-🔄 Application Flow
+Deployed on Vercel for fast, scalable hosting.
 
-Select topic
-Learn using AI-generated explanation
-Ask doubts if needed
-Track your progress
-Take mock test
-Evaluate your understanding
+👉 [https://interview-tracker-seven.vercel.app](https://interview-tracker-seven.vercel.app)
 
-✨ Key Highlights
-🧠 AI-powered learning assistant
-🎯 Topic-based structured learning
-❓ Built-in doubt solving
-🧪 Mock interview/test generator
-⚡ Fast and modern UI with React
-🌐 Live deployed on Vercel
+---
 
-🔮 Future Enhancements
-Save progress using database
-User authentication system
-Performance analytics dashboard
-Coding challenge integration
-Voice-based AI assistant
-Real interview simulation
+## 🔄 Application Flow
 
-🎯 Goal
+1. Select a topic
+2. Learn via AI-generated explanation
+3. Ask doubts if needed
+4. Track your progress
+5. Take a mock test
+6. Evaluate your understanding
 
-To build a complete developer learning ecosystem where users can:
+---
 
-Learn concepts
-Clear doubts
-Test knowledge
-Prepare for interviews
+## ✨ Key Highlights
 
-—all in one platform.
+- 🧠 AI-powered learning assistant
+- 🎯 Topic-based structured roadmap
+- ❓ Built-in doubt solving
+- 🧪 Mock interview & test generator
+- ⚡ Fast modern UI with React + Vite
+- 🌐 Live deployed on Vercel
 
-🤝 Contributing
+---
 
-Contributions are welcome! Feel free to fork and improve the project.
+## 🔮 Future Enhancements
 
-📜 License
+- [ ] Save progress with database
+- [ ] User authentication system
+- [ ] Performance analytics dashboard
+- [ ] Coding challenge integration
+- [ ] Voice-based AI assistant
+- [ ] Real interview simulation mode
 
-This project is licensed under the MIT License.
+---
 
-👨‍💻 Author
+## 🤝 Contributing
 
-Arjun PJ
-GitHub: https://github.com/arjunpj-11
+Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
-🙌 Acknowledgment
+---
 
-This project combines AI + structured learning + evaluation, aiming to make mastering modern development faster and more effective.
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 👨‍💻 Author
+
+**Arjun PJ** — [github.com/arjunpj-11](https://github.com/arjunpj-11)
+
+---
+
+> 💡 Combining AI + structured learning + evaluation to make mastering modern development faster and more effective.
