@@ -3,7 +3,10 @@ import { useLocalStorage } from './useLocalStorage'
 import { API_KEY_STORAGE, GROQ_MODEL, GROQ_API_URL } from '../utils/constants'
 
 function extractJSON(raw) {
-  let text = raw.replace(/```json\s*/gi, '').replace(/```\s*/g, '').trim()
+  let text = raw
+    .replace(/```json\s*/gi, '')
+    .replace(/```\s*/g, '')
+    .trim()
 
   const startIndex = text.search(/[\[{]/)
   if (startIndex === -1) throw new Error('No JSON structure found in response')
@@ -18,28 +21,37 @@ function extractJSON(raw) {
 
   for (let i = 0; i < text.length; i++) {
     const ch = text[i]
+
     if (escaped) {
       escaped = false
       continue
     }
+
     if (ch === '\\') {
       escaped = true
       continue
     }
+
     if (ch === '"') {
       inString = !inString
       continue
     }
+
     if (inString) continue
+
     if (ch === openChar) depth++
     if (ch === closeChar) depth--
+
     if (depth === 0) {
       endIndex = i + 1
       break
     }
   }
 
-  if (endIndex === -1) throw new Error('Response was cut off — JSON incomplete')
+  if (endIndex === -1) {
+    throw new Error('Response was cut off — JSON incomplete')
+  }
+
   return JSON.parse(text.slice(0, endIndex))
 }
 
