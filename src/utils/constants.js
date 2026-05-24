@@ -1,7 +1,7 @@
 export const APP_NAME = 'Interview Prep Tracker'
 export const API_KEY_STORAGE = 'groq_api_key_v2'
 export const TRACKER_KEY = 'tracker_progress_v2'
-export const GROQ_MODEL = 'llama-3.3-70b-versatile'
+export const GROQ_MODEL = 'llama-3.1-8b-instant'
 export const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions'
 
 export const CATEGORIES = {
