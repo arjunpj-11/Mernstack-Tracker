@@ -73,7 +73,7 @@
 .ov-card:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(124,109,250,0.15);
+  box-shadow: 0 8px 24px rgba(124, 140, 255, 0.15);
 }
 .ov-card:active { transform: translateY(0); }
 .ov-icon { font-size: 22px; margin-bottom: 9px; }
@@ -99,7 +99,7 @@
 }
 
 .dash-info {
-  background: rgba(124,109,250,0.06);
+  background: rgba(124, 140, 255, 0.06);
   border: 1px solid rgba(124,109,250,0.2);
   border-radius: var(--radius);
   padding: 14px 18px;

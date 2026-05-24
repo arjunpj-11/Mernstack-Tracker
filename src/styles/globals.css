@@ -1,28 +1,37 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #0c0c0f;
-  --bg2: #111116;
-  --surface: #16161d;
-  --surface2: #1c1c25;
-  --surface3: #22222e;
-  --border: #2a2a38;
-  --border2: #333345;
-  --text: #e8e8f0;
-  --text2: #9090aa;
-  --text3: #55556a;
-  --accent: #7c6dfa;
-  --accent2: #a78bfa;
-  --accent-glow: rgba(124,109,250,0.25);
-  --green: #34d399;
-  --yellow: #fbbf24;
-  --red: #f87171;
+  /* Study Dark Theme */
+  --bg: #070b14;
+  --bg2: #0b1120;
+
+  --surface: #101827;
+  --surface2: #162235;
+  --surface3: #1d2b42;
+
+  --border: #25344d;
+  --border2: #344766;
+
+  --text: #eef4ff;
+  --text2: #a9b7d0;
+  --text3: #66758f;
+
+  /* Primary brand colors */
+  --accent: #7c8cff;
+  --accent2: #a5b4fc;
+  --accent-glow: rgba(124, 140, 255, 0.28);
+
+  /* Supporting learning colors */
+  --green: #4ade80;
+  --yellow: #facc15;
+  --red: #fb7185;
   --orange: #fb923c;
-  --cyan: #22d3ee;
-  --pink: #f472b6;
+  --cyan: #38bdf8;
+  --pink: #f0abfc;
 
   --sidebar-w: 268px;
   --topbar-h: 58px;
+
   --radius: 12px;
   --radius-sm: 8px;
   --radius-lg: 16px;
@@ -31,10 +40,10 @@
   --font-body: 'DM Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
-  --shadow-md: 0 4px 20px rgba(0,0,0,0.5);
-  --shadow-lg: 0 12px 48px rgba(0,0,0,0.6);
-  --shadow-glow: 0 0 24px var(--accent-glow);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.38);
+  --shadow-lg: 0 18px 60px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 28px var(--accent-glow);
 }
 
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -68,3 +77,80 @@ input, textarea { font-family: var(--font-body); outline: none; }
   z-index: 90;
 }
 .overlay.visible { display: block; }
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(124, 140, 255, 0.12), transparent 34%),
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 30%),
+    linear-gradient(180deg, var(--bg), var(--bg2));
+}
+
+.sidebar {
+  background:
+    linear-gradient(180deg, rgba(16, 24, 39, 0.98), rgba(11, 17, 32, 0.98));
+}
+
+.topbar {
+  background: rgba(16, 24, 39, 0.82);
+}
+
+.dash-hero,
+.mock-home-hero,
+.result-hero {
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 34%),
+    linear-gradient(135deg, var(--surface), var(--surface2));
+}
+
+.section-card,
+.big-stat,
+.ov-card,
+.mock-category-card,
+.question-card,
+.review-item {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+    var(--surface);
+}
+
+.section-card:hover,
+.big-stat:hover,
+.ov-card:hover,
+.mock-category-card:hover {
+  border-color: rgba(124, 140, 255, 0.65);
+  box-shadow: 0 10px 30px rgba(7, 11, 20, 0.35);
+}
+
+.brand-icon,
+.ai-panel-icon,
+.start-test-btn,
+.mock-nav-btn.primary,
+.chat-send,
+.prog-bar-fill,
+.sidebar-prog-fill,
+.ov-bar-fill {
+  background: linear-gradient(135deg, var(--accent), var(--cyan));
+}
+
+.nav-item.active {
+  background: rgba(124, 140, 255, 0.13);
+}
+
+.nav-item.active::before {
+  background: linear-gradient(180deg, var(--accent), var(--cyan));
+}
+
+.check-item:hover {
+  background: rgba(124, 140, 255, 0.055);
+}
+
+.check-item:active {
+  background: rgba(124, 140, 255, 0.09);
+}
+
+.code-block,
+.question-code,
+.ai-content pre {
+  background: #08111f;
+  border-color: #25344d;
+}

@@ -45,7 +45,7 @@
 .mock-category-card:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(124,109,250,0.15);
+  box-shadow: 0 8px 24px rgba(124, 140, 255, 0.15);
 }
 .mock-category-card.selected {
   border-color: var(--accent);
@@ -159,7 +159,7 @@
 .option-item:hover:not(.disabled) {
   border-color: var(--accent);
   color: var(--text);
-  background: rgba(124,109,250,0.06);
+  background: rgba(124, 140, 255, 0.06);
 }
 .option-item.selected {
   border-color: var(--accent);
