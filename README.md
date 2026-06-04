@@ -1,3 +1,5 @@
+![Mernstack-Tracker Preview](./social-preview.jpeg)
+
 # 🚀 AI-Powered Full Stack Study Tracker
 
 An advanced AI-driven study tracker and learning platform built with React — helping developers master the modern full-stack ecosystem through interactive learning, doubt solving, and mock interview preparation.
