@@ -17,7 +17,9 @@ export function useLocalStorage(key, initialValue) {
       } else if (e.key === key) {
         try {
           setStoredValue(e.newValue ? JSON.parse(e.newValue) : initialValue)
-        } catch {}
+        } catch {
+          // Ignore malformed values written by another tab and keep current state.
+        }
       }
     }
     window.addEventListener('local-storage-update', handleStorageChange)
@@ -28,14 +30,17 @@ export function useLocalStorage(key, initialValue) {
     }
   }, [key, initialValue])
 
-  const setValue = value => {
+  const setValue = (value) => {
     try {
-      const valueToStore = value instanceof Function ? value(storedValue) : value
+      const valueToStore =
+        value instanceof Function ? value(storedValue) : value
       setStoredValue(valueToStore)
       window.localStorage.setItem(key, JSON.stringify(valueToStore))
-      window.dispatchEvent(new CustomEvent('local-storage-update', {
-        detail: { key, newValue: valueToStore }
-      }))
+      window.dispatchEvent(
+        new CustomEvent('local-storage-update', {
+          detail: { key, newValue: valueToStore }
+        })
+      )
     } catch (error) {
       console.error(error)
     }

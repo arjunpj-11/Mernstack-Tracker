@@ -53,7 +53,9 @@ Rules:
 }
 
 export function chatPrompt(topic, context, userMessage, history) {
-  const historyText = history.map(m => `${m.role === 'user' ? 'User' : 'AI'}: ${m.content}`).join('\n')
+  const historyText = history
+    .map((m) => `${m.role === 'user' ? 'User' : 'AI'}: ${m.content}`)
+    .join('\n')
   return `You are an expert software engineering interview coach helping with: "${topic}" (${context}).
 
 ${historyText ? `Conversation so far:\n${historyText}\n` : ''}

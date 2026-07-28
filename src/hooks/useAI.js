@@ -8,8 +8,15 @@ function extractJSON(raw) {
     .replace(/```\s*/g, '')
     .trim()
 
-  const startIndex = text.search(/[\[{]/)
-  if (startIndex === -1) throw new Error('No JSON structure found in response')
+  const arrayStart = text.indexOf('[')
+  const objectStart = text.indexOf('{')
+  const startIndex = [arrayStart, objectStart]
+    .filter((index) => index >= 0)
+    .sort((a, b) => a - b)[0]
+
+  if (startIndex === undefined) {
+    throw new Error('No JSON structure found in response')
+  }
   text = text.slice(startIndex)
 
   const openChar = text[0]
@@ -55,7 +62,6 @@ function extractJSON(raw) {
   return JSON.parse(text.slice(0, endIndex))
 }
 
-// Fetches a single batch of questions
 const BATCH_SIZE = 5
 const STREAM_MAX_TOKENS = 2048
 const JSON_MAX_TOKENS = 2048
@@ -110,11 +116,10 @@ IMPORTANT: Return ONLY ${count} questions (questions ${start} to ${end} of ${tot
   const text = data.choices?.[0]?.message?.content || ''
   const finishReason = data.choices?.[0]?.finish_reason
 
-  console.log(`[fetchBatch ${batchNum + 1}] finish_reason:`, finishReason)
-  console.log(`[fetchBatch ${batchNum + 1}] raw:`, text)
-
   if (finishReason === 'length') {
-    throw new Error(`Batch ${batchNum + 1} was cut off — try reducing question count`)
+    throw new Error(
+      `Batch ${batchNum + 1} was cut off — try reducing question count`
+    )
   }
 
   return extractJSON(text)
@@ -188,30 +193,39 @@ export function useAI() {
       const reader = res.body.getReader()
       const decoder = new TextDecoder()
       let fullText = ''
+      let bufferedText = ''
+
+      const processLine = (line) => {
+        if (!line.startsWith('data: ')) return
+
+        const raw = line.slice(6).trim()
+        if (!raw || raw === '[DONE]') return
+
+        try {
+          const parsed = JSON.parse(raw)
+          const delta = parsed.choices?.[0]?.delta?.content
+
+          if (delta) {
+            fullText += delta
+            onChunk(fullText)
+          }
+        } catch {
+          // Ignore malformed server-sent events without interrupting the stream.
+        }
+      }
 
       while (true) {
         const { done, value } = await reader.read()
         if (done) break
 
-        const lines = decoder.decode(value, { stream: true }).split('\n')
-
-        for (const line of lines) {
-          if (!line.startsWith('data: ')) continue
-
-          const raw = line.slice(6).trim()
-          if (raw === '[DONE]') continue
-
-          try {
-            const parsed = JSON.parse(raw)
-            const delta = parsed.choices?.[0]?.delta?.content
-
-            if (delta) {
-              fullText += delta
-              onChunk(fullText)
-            }
-          } catch {}
-        }
+        bufferedText += decoder.decode(value, { stream: true })
+        const lines = bufferedText.split('\n')
+        bufferedText = lines.pop() || ''
+        lines.forEach(processLine)
       }
+
+      bufferedText += decoder.decode()
+      if (bufferedText) processLine(bufferedText)
 
       onDone(fullText)
     } catch (err) {
@@ -269,20 +283,20 @@ export function useAI() {
       const data = await res.json()
       const text = data.choices?.[0]?.message?.content || ''
 
-      console.log('[fetchJSON] raw:', text)
-
       return extractJSON(text)
     }
 
     const numBatches = Math.ceil(totalQuestions / BATCH_SIZE)
-    console.log(
-      `[fetchJSON] Batching ${totalQuestions} questions into ${numBatches} requests of ${BATCH_SIZE}`
-    )
-
     const allQuestions = []
 
     for (let i = 0; i < numBatches; i++) {
-      const batch = await fetchBatch(apiKey, prompt, i, BATCH_SIZE, totalQuestions)
+      const batch = await fetchBatch(
+        apiKey,
+        prompt,
+        i,
+        BATCH_SIZE,
+        totalQuestions
+      )
       allQuestions.push(...batch)
 
       if (i < numBatches - 1) {

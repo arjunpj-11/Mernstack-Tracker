@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 import QuestionCard from './QuestionCard'
 import MockTestResult from './MockTestResult'
 
@@ -9,22 +9,21 @@ export default function MockTestSession({ questions, onBack }) {
   const [finished, setFinished] = useState(false)
   const [timeLeft, setTimeLeft] = useState(questions.length * 90)
   const [timeUsed, setTimeUsed] = useState(0)
-  const [reviewMode, setReviewMode] = useState(false)
 
   useEffect(() => {
-    if (finished) return
-    const timer = setInterval(() => {
-      setTimeLeft(t => {
-        if (t <= 1) { clearInterval(timer); handleFinish(); return 0 }
-        return t - 1
-      })
-      setTimeUsed(u => u + 1)
+    if (finished || timeLeft === 0) return
+
+    const timer = setTimeout(() => {
+      setTimeLeft(timeLeft - 1)
+      setTimeUsed((u) => Math.min(u + 1, questions.length * 90))
+      if (timeLeft === 1) setFinished(true)
     }, 1000)
-    return () => clearInterval(timer)
-  }, [finished])
+
+    return () => clearTimeout(timer)
+  }, [finished, questions.length, timeLeft])
 
   const handleAnswer = (optIndex) => {
-    setAnswers(prev => ({ ...prev, [current]: optIndex }))
+    setAnswers((prev) => ({ ...prev, [current]: optIndex }))
     setShowResult(true)
   }
 
@@ -51,14 +50,15 @@ export default function MockTestSession({ questions, onBack }) {
     return (
       <MockTestResult
         questions={questions}
-        answers={Object.values(answers).concat(
-          Array(questions.length - Object.keys(answers).length).fill(undefined)
-        )}
+        answers={questions.map((_, index) => answers[index])}
         timeUsed={timeUsed}
         onRetry={() => {
-          setCurrent(0); setAnswers({})
-          setShowResult(false); setFinished(false)
-          setTimeLeft(questions.length * 90); setTimeUsed(0)
+          setCurrent(0)
+          setAnswers({})
+          setShowResult(false)
+          setFinished(false)
+          setTimeLeft(questions.length * 90)
+          setTimeUsed(0)
         }}
         onHome={onBack}
       />
@@ -99,15 +99,15 @@ export default function MockTestSession({ questions, onBack }) {
       <div className="mock-nav-btns">
         <button
           className="mock-nav-btn secondary"
-          onClick={() => { setShowResult(false); setCurrent(Math.max(0, current - 1)) }}
+          onClick={() => {
+            setShowResult(false)
+            setCurrent(Math.max(0, current - 1))
+          }}
           disabled={current === 0}
         >
           ← Previous
         </button>
-        <button
-          className="mock-nav-btn primary"
-          onClick={handleNext}
-        >
+        <button className="mock-nav-btn primary" onClick={handleNext}>
           {current === questions.length - 1 ? 'Finish →' : 'Next →'}
         </button>
       </div>

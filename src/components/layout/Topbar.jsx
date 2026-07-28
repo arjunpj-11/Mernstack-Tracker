@@ -1,18 +1,24 @@
 import { useNavigate } from 'react-router-dom'
 
-export default function Topbar({ onMenuClick, stats, pageName, hasKey, onAIClick }) {
+export default function Topbar({
+  onMenuClick,
+  stats,
+  pageName,
+  hasKey,
+  onAIClick
+}) {
   const navigate = useNavigate()
 
   return (
     <div className="topbar">
       <div className="topbar-left">
         <button className="hamburger" onClick={onMenuClick} aria-label="Menu">
-          <span /><span /><span />
+          <span />
+          <span />
+          <span />
         </button>
         <span className="topbar-title">Interview Tracker</span>
-        {pageName && (
-          <span className="topbar-page-name">{pageName}</span>
-        )}
+        {pageName && <span className="topbar-page-name">{pageName}</span>}
       </div>
 
       <div className="topbar-right">

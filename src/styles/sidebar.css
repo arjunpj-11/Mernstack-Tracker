@@ -4,20 +4,22 @@
   background: var(--surface);
   border-right: 1px solid var(--border);
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 100;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sidebar-header {
   padding: 20px 18px 16px;
   border-bottom: 1px solid var(--border);
-  position: sticky; top: 0;
+  position: sticky;
+  top: 0;
   background: var(--surface);
   z-index: 2;
   display: flex;
@@ -25,17 +27,26 @@
   justify-content: space-between;
 }
 
-.sidebar-brand { display: flex; flex-direction: column; gap: 3px; }
+.sidebar-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
 
 .brand-logo {
-  display: flex; align-items: center; gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .brand-icon {
-  width: 28px; height: 28px;
+  width: 28px;
+  height: 28px;
   background: linear-gradient(135deg, var(--accent), var(--cyan));
   border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 14px;
   box-shadow: 0 2px 8px var(--accent-glow);
 }
@@ -57,18 +68,25 @@
 
 .sidebar-close {
   display: none;
-  width: 28px; height: 28px;
+  width: 28px;
+  height: 28px;
   background: var(--surface2);
   border-radius: 50%;
-  align-items: center; justify-content: center;
+  align-items: center;
+  justify-content: center;
   font-size: 14px;
   color: var(--text2);
   transition: background 0.15s;
   flex-shrink: 0;
 }
-.sidebar-close:hover { background: var(--border2); }
+.sidebar-close:hover {
+  background: var(--border2);
+}
 
-.sidebar-inner { flex: 1; padding-bottom: 24px; }
+.sidebar-inner {
+  flex: 1;
+  padding-bottom: 24px;
+}
 
 .sidebar-group-label {
   padding: 18px 18px 6px;
@@ -92,22 +110,33 @@
   -webkit-tap-highlight-color: transparent;
   border-radius: 0;
 }
-.nav-item:hover { background: rgba(255,255,255,0.04); }
-.nav-item:active { background: rgba(255,255,255,0.07); }
-.nav-item.active { background: rgba(124,109,250,0.12); }
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+.nav-item:active {
+  background: rgba(255, 255, 255, 0.07);
+}
+.nav-item.active {
+  background: rgba(124, 109, 250, 0.12);
+}
 .nav-item.active::before {
   content: '';
-  position: absolute; left: 0; top: 50%;
+  position: absolute;
+  left: 0;
+  top: 50%;
   transform: translateY(-50%);
-  width: 3px; height: 22px;
+  width: 3px;
+  height: 22px;
   background: linear-gradient(180deg, var(--accent), var(--cyan));
   border-radius: 0 3px 3px 0;
 }
 
 .nav-icon {
   font-size: 15px;
-  width: 22px; text-align: center;
-  flex-shrink: 0; line-height: 1;
+  width: 22px;
+  text-align: center;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
 .nav-label {
@@ -117,10 +146,14 @@
   flex: 1;
   line-height: 1.3;
 }
-.nav-item.active .nav-label { color: var(--accent2); font-weight: 600; }
+.nav-item.active .nav-label {
+  color: var(--accent2);
+  font-weight: 600;
+}
 
 .nav-dot {
-  width: 6px; height: 6px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--border2);
   flex-shrink: 0;
@@ -132,9 +165,9 @@
   font-weight: 700;
   padding: 1px 5px;
   border-radius: 4px;
-  background: rgba(52,211,153,0.15);
+  background: rgba(52, 211, 153, 0.15);
   color: var(--green);
-  border: 1px solid rgba(52,211,153,0.3);
+  border: 1px solid rgba(52, 211, 153, 0.3);
   letter-spacing: 0.03em;
   flex-shrink: 0;
 }
@@ -149,13 +182,21 @@
 .sidebar-prog-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--accent), var(--cyan));
-  transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 2px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .sidebar { transform: translateX(-100%); box-shadow: none; }
-  .sidebar.open { transform: translateX(0); box-shadow: var(--shadow-lg); }
-  .sidebar-close { display: flex; }
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: none;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: var(--shadow-lg);
+  }
+  .sidebar-close {
+    display: flex;
+  }
 }

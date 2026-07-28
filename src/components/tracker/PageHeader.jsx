@@ -5,7 +5,7 @@ export default function PageHeader({ title, subtitle, tags = [] }) {
       {subtitle && <p>{subtitle}</p>}
       {tags.length > 0 && (
         <div className="page-header-meta">
-          {tags.map(tag => (
+          {tags.map((tag) => (
             <span key={tag} className={`tag tag-${tag.toLowerCase()}`}>
               {tag}
             </span>

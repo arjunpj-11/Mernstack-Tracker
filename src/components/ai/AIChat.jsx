@@ -26,14 +26,14 @@ export default function AIChat({ topic, ai }) {
 
     const history = messages.slice(1)
     const userMsg = { role: 'user', content: msg }
-    setMessages(prev => [...prev, userMsg, { role: 'ai', content: '' }])
+    setMessages((prev) => [...prev, userMsg, { role: 'ai', content: '' }])
 
     const prompt = chatPrompt(topic?.label, topic?.context, msg, history)
 
     await ai.streamResponse(
       prompt,
       (text) => {
-        setMessages(prev => {
+        setMessages((prev) => {
           const updated = [...prev]
           updated[updated.length - 1] = { role: 'ai', content: text }
           return updated
@@ -41,13 +41,14 @@ export default function AIChat({ topic, ai }) {
       },
       () => setThinking(false),
       (err) => {
-        setMessages(prev => {
+        setMessages((prev) => {
           const updated = [...prev]
           updated[updated.length - 1] = {
             role: 'ai',
-            content: err === 'no_key'
-              ? 'Please add your Groq API key to use AI chat.'
-              : `Error: ${err}. Please try again.`
+            content:
+              err === 'no_key'
+                ? 'Please add your Groq API key to use AI chat.'
+                : `Error: ${err}. Please try again.`
           }
           return updated
         })
@@ -70,10 +71,9 @@ export default function AIChat({ topic, ai }) {
         flexDirection: 'column',
         height: '100%',
         minHeight: 0,
-        overflow: 'hidden',
+        overflow: 'hidden'
       }}
     >
-      {/* Scrollable messages */}
       <div
         style={{
           flex: 1,
@@ -82,7 +82,7 @@ export default function AIChat({ topic, ai }) {
           display: 'flex',
           flexDirection: 'column',
           gap: 14,
-          minHeight: 0,
+          minHeight: 0
         }}
       >
         {messages.map((msg, i) => (
@@ -106,17 +106,13 @@ export default function AIChat({ topic, ai }) {
         <div ref={bottomRef} />
       </div>
 
-      {/* Input — fixed at bottom */}
-      <div
-        className="chat-input-wrap"
-        style={{ flexShrink: 0 }}
-      >
+      <div className="chat-input-wrap" style={{ flexShrink: 0 }}>
         <textarea
           ref={textareaRef}
           className="chat-input"
           placeholder="Ask a follow-up question… (Enter to send, Shift+Enter for newline)"
           value={input}
-          onChange={e => setInput(e.target.value)}
+          onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           rows={1}
           style={{ resize: 'none' }}

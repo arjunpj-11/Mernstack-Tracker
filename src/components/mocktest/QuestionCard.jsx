@@ -1,4 +1,11 @@
-export default function QuestionCard({ question, index, total, answer, onAnswer, showResult }) {
+export default function QuestionCard({
+  question,
+  index,
+  total,
+  answer,
+  onAnswer,
+  showResult
+}) {
   const letters = ['A', 'B', 'C', 'D']
 
   const getOptionClass = (i) => {
@@ -6,18 +13,19 @@ export default function QuestionCard({ question, index, total, answer, onAnswer,
       return answer === i ? 'option-item selected' : 'option-item'
     }
     if (i === question.correct) return 'option-item correct disabled'
-    if (i === answer && answer !== question.correct) return 'option-item wrong disabled'
+    if (i === answer && answer !== question.correct)
+      return 'option-item wrong disabled'
     return 'option-item disabled'
   }
 
   return (
     <div className="question-card">
-      <div className="question-num">Question {index + 1} of {total}</div>
+      <div className="question-num">
+        Question {index + 1} of {total}
+      </div>
       <div className="question-text">{question.question}</div>
 
-      {question.code && (
-        <div className="question-code">{question.code}</div>
-      )}
+      {question.code && <div className="question-code">{question.code}</div>}
 
       <div className="options-list">
         {question.options.map((opt, i) => (
@@ -34,7 +42,8 @@ export default function QuestionCard({ question, index, total, answer, onAnswer,
 
       {showResult && question.explanation && (
         <div className="explanation-box">
-          <strong>Explanation: </strong>{question.explanation}
+          <strong>Explanation: </strong>
+          {question.explanation}
         </div>
       )}
     </div>

@@ -1,9 +1,7 @@
 export const SIDEBAR_CONFIG = [
   {
     group: 'Overview',
-    items: [
-      { id: 'overview', path: '/', icon: '◻', label: 'Dashboard' }
-    ]
+    items: [{ id: 'overview', path: '/', icon: '◻', label: 'Dashboard' }]
   },
   {
     group: 'JavaScript',
@@ -17,7 +15,13 @@ export const SIDEBAR_CONFIG = [
       { id: 'js6', path: '/js6', icon: '🔗', label: 'Async JS' },
       { id: 'js7', path: '/js7', icon: '✦', label: 'ES6+ & Extras' },
       { id: 'js8', path: '/js8', icon: '🔒', label: 'Memory & Security' },
-      { id: 'js9', path: '/js9', icon: '🔬', label: 'Deep Internals', isNew: true },
+      {
+        id: 'js9',
+        path: '/js9',
+        icon: '🔬',
+        label: 'Deep Internals',
+        isNew: true
+      }
     ]
   },
   {
@@ -27,7 +31,13 @@ export const SIDEBAR_CONFIG = [
       { id: 'ts1', path: '/ts1', icon: '🔷', label: 'TS Fundamentals' },
       { id: 'ts2', path: '/ts2', icon: '⚡', label: 'Generics & Advanced' },
       { id: 'ts3', path: '/ts3', icon: '🛠', label: 'Utility Types & OOP' },
-      { id: 'ts4', path: '/ts4', icon: '🎨', label: 'Decorators & DI', isNew: true },
+      {
+        id: 'ts4',
+        path: '/ts4',
+        icon: '🎨',
+        label: 'Decorators & DI',
+        isNew: true
+      }
     ]
   },
   {
@@ -35,10 +45,26 @@ export const SIDEBAR_CONFIG = [
     cat: 'react',
     items: [
       { id: 'react1', path: '/react1', icon: '⚛', label: 'React Core' },
-      { id: 'react2', path: '/react2', icon: '🪝', label: 'Hooks & Performance' },
+      {
+        id: 'react2',
+        path: '/react2',
+        icon: '🪝',
+        label: 'Hooks & Performance'
+      },
       { id: 'react3', path: '/react3', icon: '🔴', label: 'Redux & State' },
-      { id: 'react4', path: '/react4', icon: '🧪', label: 'Testing, Styling & Auth' },
-      { id: 'react5', path: '/react5', icon: '🚀', label: 'React 19 & Advanced', isNew: true },
+      {
+        id: 'react4',
+        path: '/react4',
+        icon: '🧪',
+        label: 'Testing, Styling & Auth'
+      },
+      {
+        id: 'react5',
+        path: '/react5',
+        icon: '🚀',
+        label: 'React 19 & Advanced',
+        isNew: true
+      }
     ]
   },
   {
@@ -47,20 +73,52 @@ export const SIDEBAR_CONFIG = [
     items: [
       { id: 'next1', path: '/next1', icon: '▲', label: 'Next.js Core' },
       { id: 'next2', path: '/next2', icon: '⚡', label: 'Rendering & Data' },
-      { id: 'next3', path: '/next3', icon: '🔧', label: 'Advanced & Real-World' },
-      { id: 'next4', path: '/next4', icon: '📄', label: 'Pages Router & Config', isNew: true },
+      {
+        id: 'next3',
+        path: '/next3',
+        icon: '🔧',
+        label: 'Advanced & Real-World'
+      },
+      {
+        id: 'next4',
+        path: '/next4',
+        icon: '📄',
+        label: 'Pages Router & Config',
+        isNew: true
+      }
     ]
   },
   {
     group: 'Node.js + Express',
     cat: 'node',
     items: [
-      { id: 'node1', path: '/node1', icon: '🟢', label: 'Node Core & Internals' },
-      { id: 'node2', path: '/node2', icon: '🔀', label: 'Streams & Child Proc' },
+      {
+        id: 'node1',
+        path: '/node1',
+        icon: '🟢',
+        label: 'Node Core & Internals'
+      },
+      {
+        id: 'node2',
+        path: '/node2',
+        icon: '🔀',
+        label: 'Streams & Child Proc'
+      },
       { id: 'node3', path: '/node3', icon: '🚂', label: 'Express & APIs' },
-      { id: 'node4', path: '/node4', icon: '🔐', label: 'Auth, Security & Deploy' },
+      {
+        id: 'node4',
+        path: '/node4',
+        icon: '🔐',
+        label: 'Auth, Security & Deploy'
+      },
       { id: 'node5', path: '/node5', icon: '🌐', label: 'WS, GraphQL & Arch' },
-      { id: 'node6', path: '/node6', icon: '📡', label: 'HTTP Deep Dive', isNew: true },
+      {
+        id: 'node6',
+        path: '/node6',
+        icon: '📡',
+        label: 'HTTP Deep Dive',
+        isNew: true
+      }
     ]
   },
   {
@@ -68,9 +126,25 @@ export const SIDEBAR_CONFIG = [
     cat: 'mongo',
     items: [
       { id: 'mongo1', path: '/mongo1', icon: '🍃', label: 'MongoDB Core' },
-      { id: 'mongo2', path: '/mongo2', icon: '📊', label: 'Aggregation & Design' },
-      { id: 'mongo3', path: '/mongo3', icon: '🔒', label: 'Security, Perf & Real-World' },
-      { id: 'mongo4', path: '/mongo4', icon: '🗄', label: 'Advanced MongoDB', isNew: true },
+      {
+        id: 'mongo2',
+        path: '/mongo2',
+        icon: '📊',
+        label: 'Aggregation & Design'
+      },
+      {
+        id: 'mongo3',
+        path: '/mongo3',
+        icon: '🔒',
+        label: 'Security, Perf & Real-World'
+      },
+      {
+        id: 'mongo4',
+        path: '/mongo4',
+        icon: '🗄',
+        label: 'Advanced MongoDB',
+        isNew: true
+      }
     ]
   },
   {
@@ -85,7 +159,7 @@ export const SIDEBAR_CONFIG = [
       { id: 'dsa4', path: '/dsa4', icon: '⟁', label: 'Searching & Sorting' },
       { id: 'dsa5', path: '/dsa5', icon: '◈', label: 'DP, Greedy & Patterns' },
       { id: 'dsa8', path: '/dsa8', icon: '🔑', label: 'Hashing & Bit Manip' },
-      { id: 'dsa9', path: '/dsa9', icon: '📐', label: 'Advanced DSA Concepts' },
+      { id: 'dsa9', path: '/dsa9', icon: '📐', label: 'Advanced DSA Concepts' }
     ]
   },
   {
@@ -97,12 +171,17 @@ export const SIDEBAR_CONFIG = [
       { id: 'sql3', path: '/sql3', icon: '⚡', label: 'Advanced Queries' },
       { id: 'sql4', path: '/sql4', icon: '📊', label: 'Indexes & Performance' },
       { id: 'sql5', path: '/sql5', icon: '🔐', label: 'Transactions & ACID' },
-      { id: 'sql6', path: '/sql6', icon: '🐘', label: 'PostgreSQL Specific', isNew: true },
+      {
+        id: 'sql6',
+        path: '/sql6',
+        icon: '🐘',
+        label: 'PostgreSQL Specific',
+        isNew: true
+      }
     ]
   }
 ]
 
-export const OV_META = SIDEBAR_CONFIG
-  .flatMap(g => g.items)
-  .filter(i => i.id !== 'overview')
-  .map(i => ({ ...i }))
+export const OV_META = SIDEBAR_CONFIG.flatMap((g) => g.items)
+  .filter((i) => i.id !== 'overview')
+  .map((i) => ({ ...i }))

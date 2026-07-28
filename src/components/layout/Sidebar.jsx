@@ -8,7 +8,7 @@ export default function Sidebar({ open, onClose }) {
   const { getPageStats } = useProgress()
 
   const getProgress = (pageId) => {
-    const page = ALL_PAGE_ITEMS.find(p => p.pageId === pageId)
+    const page = ALL_PAGE_ITEMS.find((p) => p.pageId === pageId)
     if (!page) return 0
     const { pct } = getPageStats(pageId, page.items)
     return pct
@@ -22,14 +22,16 @@ export default function Sidebar({ open, onClose }) {
 
   const getCatProgress = (cat) => {
     if (!cat) return 0
-    const pages = ALL_PAGE_ITEMS.filter(p => p.cat === cat)
+    const pages = ALL_PAGE_ITEMS.filter((p) => p.cat === cat)
     if (!pages.length) return 0
-    let total = 0, done = 0
-    pages.forEach(p => {
+    let total = 0,
+      done = 0
+    pages.forEach((p) => {
       const { total: t, done: d } = getPageStats(p.pageId, p.items)
-      total += t; done += d
+      total += t
+      done += d
     })
-    return total ? Math.round(done / total * 100) : 0
+    return total ? Math.round((done / total) * 100) : 0
   }
 
   return (
@@ -42,7 +44,9 @@ export default function Sidebar({ open, onClose }) {
           </div>
           <span className="brand-sub">MERN · TS · Next.js · DSA</span>
         </div>
-        <button className="sidebar-close" onClick={onClose}>✕</button>
+        <button className="sidebar-close" onClick={onClose}>
+          ✕
+        </button>
       </div>
 
       <div className="sidebar-inner">
@@ -52,7 +56,8 @@ export default function Sidebar({ open, onClose }) {
 
             {group.items.map((item) => {
               const pct = item.id !== 'overview' ? getProgress(item.id) : null
-              const isActive = location.pathname === item.path ||
+              const isActive =
+                location.pathname === item.path ||
                 (item.path === '/' && location.pathname === '/')
 
               return (
@@ -60,6 +65,7 @@ export default function Sidebar({ open, onClose }) {
                   key={item.id}
                   to={item.path}
                   className={`nav-item ${isActive ? 'active' : ''}`}
+                  onClick={onClose}
                 >
                   <span className="nav-icon">{item.icon}</span>
                   <span className="nav-label">{item.label}</span>
@@ -89,10 +95,18 @@ export default function Sidebar({ open, onClose }) {
           <NavLink
             to="/mock-test"
             className={`nav-item ${location.pathname === '/mock-test' ? 'active' : ''}`}
-            style={{ borderRadius: '8px', background: 'rgba(251,191,36,0.06)', border: '1px solid rgba(251,191,36,0.2)', marginBottom: '4px' }}
+            onClick={onClose}
+            style={{
+              borderRadius: '8px',
+              background: 'rgba(251,191,36,0.06)',
+              border: '1px solid rgba(251,191,36,0.2)',
+              marginBottom: '4px'
+            }}
           >
             <span className="nav-icon">🎯</span>
-            <span className="nav-label" style={{ color: 'var(--yellow)' }}>Mock Test</span>
+            <span className="nav-label" style={{ color: 'var(--yellow)' }}>
+              Mock Test
+            </span>
           </NavLink>
         </div>
       </div>

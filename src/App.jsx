@@ -3,7 +3,7 @@ import Layout from './components/layout/Layout'
 import Dashboard from './pages/Dashboard'
 import MockTest from './pages/MockTest'
 
-// JS Pages
+// Route imports are grouped to mirror the sidebar curriculum.
 import JS1 from './pages/tracker/JS1'
 import JS2 from './pages/tracker/JS2'
 import JS3 from './pages/tracker/JS3'
@@ -14,26 +14,22 @@ import JS7 from './pages/tracker/JS7'
 import JS8 from './pages/tracker/JS8'
 import JS9 from './pages/tracker/JS9'
 
-// TS Pages
 import TS1 from './pages/tracker/TS1'
 import TS2 from './pages/tracker/TS2'
 import TS3 from './pages/tracker/TS3'
 import TS4 from './pages/tracker/TS4'
 
-// React Pages
 import React1 from './pages/tracker/React1'
 import React2 from './pages/tracker/React2'
 import React3 from './pages/tracker/React3'
 import React4 from './pages/tracker/React4'
 import React5 from './pages/tracker/React5'
 
-// Next Pages
 import Next1 from './pages/tracker/Next1'
 import Next2 from './pages/tracker/Next2'
 import Next3 from './pages/tracker/Next3'
 import Next4 from './pages/tracker/Next4'
 
-// Node Pages
 import Node1 from './pages/tracker/Node1'
 import Node2 from './pages/tracker/Node2'
 import Node3 from './pages/tracker/Node3'
@@ -41,13 +37,11 @@ import Node4 from './pages/tracker/Node4'
 import Node5 from './pages/tracker/Node5'
 import Node6 from './pages/tracker/Node6'
 
-// Mongo Pages
 import Mongo1 from './pages/tracker/Mongo1'
 import Mongo2 from './pages/tracker/Mongo2'
 import Mongo3 from './pages/tracker/Mongo3'
 import Mongo4 from './pages/tracker/Mongo4'
 
-// DSA Pages
 import DSA1 from './pages/tracker/DSA1'
 import DSA2 from './pages/tracker/DSA2'
 import DSA3 from './pages/tracker/DSA3'
@@ -113,13 +107,13 @@ export default function App() {
           <Route path="dsa7" element={<DSA7 />} />
           <Route path="dsa8" element={<DSA8 />} />
           <Route path="dsa9" element={<DSA9 />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
           <Route path="sql1" element={<SQL1 />} />
-<Route path="sql2" element={<SQL2 />} />
-<Route path="sql3" element={<SQL3 />} />
-<Route path="sql4" element={<SQL4 />} />
-<Route path="sql5" element={<SQL5 />} />
-<Route path="sql6" element={<SQL6 />} />
+          <Route path="sql2" element={<SQL2 />} />
+          <Route path="sql3" element={<SQL3 />} />
+          <Route path="sql4" element={<SQL4 />} />
+          <Route path="sql5" element={<SQL5 />} />
+          <Route path="sql6" element={<SQL6 />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
     </BrowserRouter>

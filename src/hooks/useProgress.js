@@ -6,7 +6,7 @@ export function useProgress() {
 
   const toggle = (pageId, itemId) => {
     const key = `${pageId}_${itemId}`
-    setProgress(prev => ({ ...prev, [key]: !prev[key] }))
+    setProgress((prev) => ({ ...prev, [key]: !prev[key] }))
   }
 
   const isChecked = (pageId, itemId) => {
@@ -15,19 +15,20 @@ export function useProgress() {
 
   const getPageStats = (pageId, items) => {
     const total = items.length
-    const done = items.filter(id => progress[`${pageId}_${id}`]).length
-    return { total, done, pct: total ? Math.round(done / total * 100) : 0 }
+    const done = items.filter((id) => progress[`${pageId}_${id}`]).length
+    return { total, done, pct: total ? Math.round((done / total) * 100) : 0 }
   }
 
   const getTotalStats = (allPageItems) => {
-    let total = 0, done = 0
+    let total = 0,
+      done = 0
     allPageItems.forEach(({ pageId, items }) => {
-      items.forEach(id => {
+      items.forEach((id) => {
         total++
         if (progress[`${pageId}_${id}`]) done++
       })
     })
-    return { total, done, pct: total ? Math.round(done / total * 100) : 0 }
+    return { total, done, pct: total ? Math.round((done / total) * 100) : 0 }
   }
 
   const resetAll = () => setProgress({})
